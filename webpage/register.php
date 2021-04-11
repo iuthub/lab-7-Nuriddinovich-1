@@ -1,6 +1,24 @@
-<?php  
-
+<?php
 include('connection.php');
+$username = '';
+$fullName = '';
+$email = '';
+$password = '';
+$confirm_pwd = '';
+
+//$db = new PDO('mysql:host=localhost;dbname=blog', 'blogdbadmin', '220205');
+//$add_user_stmt = $db->prepare('INSERT INTO users(username, email, password, fullname, dob) VALUES(?,?,?,?,?)');
+
+if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+    $username = $_REQUEST['username'];
+    $fullName = $_REQUEST['fullname'];
+    $email = $_REQUEST['email'];
+    $password = $_REQUEST['pwd'];
+    $confirm_pwd = $_REQUEST['confirm_pwd'];
+
+//    $add_user_stmt->execute(array($username, $email, $password, $fullName, date("l d.m.Y")));
+    header("Location: index.php", true, 301);
+}
 
 ?>
 
